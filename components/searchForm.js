@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const SearchForm = ({ submitHandler, changeHandler }) => {
-  return(
-    <form onSubmit={submitHandler}>
-      <label>Search for a movie:</label>
-      <input type='text' onChange={changeHandler}></input>
-      <button type='submit'>Search</button>
-    </form>
-  )
-};
+const SearchForm = ({ submitHandler, changeHandler }) => (
+  <form onSubmit={submitHandler}>
+    <label htmlFor='texto'>
+      Search for a movie:
+      <input type='text' onChange={changeHandler} id='texto' />
+    </label>
+    <button type='submit'>Search</button>
+  </form>
+);
 
 export default SearchForm;

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Head from 'next/head'
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 
-import Navbar from './../components/navbar';
-import SearchForm from './../components/searchForm';
-import SearchResults from './../components/searchResults';
+import Navbar from '../components/navbar';
+import SearchForm from '../components/searchForm';
+import SearchResults from '../components/searchResults';
 
-const API_KEY = process.env.API_KEY;
+const { API_KEY } = process.env;
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -20,38 +20,40 @@ const Home = () => {
     // fetchData();
   }, []);
 
-  const searchInputChangeHanlder = e => {
+  const searchInputChangeHanlder = (e) => {
     setSearchInput(e.target.value);
   };
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${searchInput}`);
     const data = await response.json();
     setSearchResults(data.Search);
   };
-  
+
   return (
     <div>
       <Head>
         <title>Movie Hooked!</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
-      
+
       <Navbar />
 
-      <SearchForm submitHandler={submitHandler} changeHandler={searchInputChangeHanlder}/>
+      <SearchForm submitHandler={submitHandler} changeHandler={searchInputChangeHanlder} />
 
       <SearchResults results={searchResults} />
 
 
-      <style global jsx>{`
+      <style global jsx>
+        {`
         body {
           margin: 0;
         }
-      `}</style>
+      `}
+      </style>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

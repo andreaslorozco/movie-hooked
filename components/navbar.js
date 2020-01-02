@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 
-const Navbar = () => {
-  return (
-    <nav>
-
-      <div>Movie Hooked</div>
-    
-      <style jsx>{`
+const Navbar = () => (
+  <nav>
+    <div>Movie Hooked</div>
+    <style jsx>
+      {`
         nav {
           display: flex;
           background: black;
@@ -18,10 +16,10 @@ const Navbar = () => {
         div {
           align-self: center;
         }
-      `}</style>
-    
-    </nav>
-  )
-}
+      `}
+    </style>
+
+  </nav>
+);
 
 export default Navbar;
