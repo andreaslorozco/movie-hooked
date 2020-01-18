@@ -16,9 +16,11 @@ const searchResults = ({ results }) => (
           display: flex;
           flex-wrap: wrap;
           width: 90%;
+          justify-content: space-between;
         }
         .result {
           width: 300px;
+          border: 1px solid black;
         }
       `}
     </style>
